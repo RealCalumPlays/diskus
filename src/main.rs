@@ -38,7 +38,11 @@ fn print_result(size: u64, errors: &[Error], size_format: &FileSizeOpts, verbose
             size.to_formatted_string(&Locale::en)
         );
     } else {
-        println!("{}", size);
+        println!(
+            "{} ({:} bytes)",
+            size.file_size(size_format).unwrap(),
+            size.to_formatted_string(&Locale::en)
+        );
     }
 }
 
